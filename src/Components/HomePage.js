@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
   return (
     <div>
-      <div className="absolute w-[1500px] h-[700px] flex justify-center items-center">
+      <div className="absolute w-full h-[700px] flex justify-center items-center bg-black opacity-75">
         <div className="  text-white">
           <h1 className="text-5xl font-extrabold">
             The biggest Indian hits. Ready to watch here <br></br>

@@ -30,6 +30,7 @@ const Login = () => {
         password.current.value
       );
       setErrorMessage(message);
+      if (message) return;
     } else {
       const message = SignInValidation(
         email.current.value,
