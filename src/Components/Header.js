@@ -3,23 +3,48 @@ import { signOut } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "../Utils/userSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isClicked, setIsClicked] = useState(false);
   const photoClickHandler = () => {
     setIsClicked(!isClicked);
   };
-  const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
+      .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/Browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/login");
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
   return (
     <div className="absolute w-screen  p-3  bg-gradient-to-b from-black flex justify-between">
       <img
