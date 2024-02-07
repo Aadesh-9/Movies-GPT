@@ -1,10 +1,12 @@
 import AppLayout from "./Components/AppLayout";
+import appStore from "./Utils/appStore";
+import { Provider } from "react-redux";
 
 const App = () => {
   return (
-    <div>
+    <Provider store={appStore}>
       <AppLayout />
-    </div>
+    </Provider>
   );
 };
 

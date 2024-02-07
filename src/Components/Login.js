@@ -4,10 +4,16 @@ import SignUpValidation from "../Utils/SignUpValidation";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../Utils/userSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [rememberMe, SetRememberMe] = useState(true);
   const email = useRef(null);
@@ -42,6 +48,25 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
+          updateProfile(auth.currentUser, {
+            displayName: name.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/121669380?v=4",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/Browse");
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -60,6 +85,7 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
+          navigate("/Browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -82,13 +108,6 @@ const Login = () => {
 
   return (
     <div className="m-0 p-0">
-      <div className="absolute  p-3  bg-gradient-to-b from-black">
-        <img
-          className=" w-48"
-          alt="netflix-logo"
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-        ></img>
-      </div>
       <form
         onSubmit={(e) => e.preventDefault()}
         className="inset-x-[35%] inset-y-[10%] absolute bg-black w-[450px] h-[600px] text-white  bg-opacity-80"
