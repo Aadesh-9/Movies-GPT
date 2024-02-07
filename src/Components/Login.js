@@ -7,13 +7,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import Header from "./Header";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [rememberMe, SetRememberMe] = useState(true);
   const email = useRef(null);
@@ -63,7 +62,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/Browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -86,7 +84,6 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          navigate("/Browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -109,6 +106,7 @@ const Login = () => {
 
   return (
     <div className="m-0 p-0">
+      <Header />
       <form
         onSubmit={(e) => e.preventDefault()}
         className="inset-x-[35%] inset-y-[10%] absolute bg-black w-[450px] h-[600px] text-white  bg-opacity-80"
