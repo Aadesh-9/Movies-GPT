@@ -10,6 +10,7 @@ import { auth } from "../Utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 import Header from "./Header";
+import { NETFLIX_BG_IMAGE, USER_AVATAR } from "../Utils/Constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -47,10 +48,9 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
           updateProfile(auth.currentUser, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/121669380?v=4",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -70,7 +70,6 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode + "  -  " + errorMessage);
           setSignInError(
             "Oops !! Your password does not match with email , please  .. Check your email and password ."
           );
@@ -83,12 +82,11 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode + "  -  " + errorMessage);
+
           setSignInError(
             "Oops !! Your password does not match with email , please  .. Check your email and password ."
           );
@@ -115,19 +113,24 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
-          <input
-            ref={name}
-            className="py-7 px-4 mx-[73px] w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700 "
-            type="Name"
-            name="Name"
-            placeholder="Full Name"
-          ></input>
+          <label>
+            {" "}
+            <input
+              ref={name}
+              className="py-7 px-4 mx-[73px] w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700 "
+              type="Name"
+              name="Name"
+              id="Name"
+              placeholder="Full Name"
+            ></input>
+          </label>
         )}
         <input
           ref={email}
           className="py-7 px-4  my-5 mx-[73px] w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700"
           type="text"
           name="email-or-phone-no"
+          id="email"
           placeholder="Email or phone number"
         ></input>
         <input
@@ -135,6 +138,7 @@ const Login = () => {
           className="py-7 px-4 mx-[73px] w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700 "
           type="password"
           name="password"
+          id="password"
           placeholder="password"
         ></input>
         <p className="relative start-[64px] text-red-600 font-medium text-lg p-2 mt-4">
@@ -181,10 +185,7 @@ const Login = () => {
           </button>
         </p>
       </form>
-      <img
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/98a1cb1e-5a1d-4b98-a46f-995272b632dd/IN-en-20240129-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-        alt="Bg-pic-netflix"
-      ></img>
+      <img src={NETFLIX_BG_IMAGE} alt="Bg-pic-netflix"></img>
     </div>
   );
 };
