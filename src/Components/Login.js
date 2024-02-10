@@ -10,6 +10,8 @@ import { auth } from "../Utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import { USER_AVATAR } from "../Utils/Constants";
+import Header from "./Header";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -51,7 +53,7 @@ const Login = () => {
           console.log(user);
           updateProfile(auth.currentUser, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/121669380?v=4",
+            photoURL: { USER_AVATAR },
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -63,6 +65,7 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
+              console.log("cli");
               navigate("/Browse");
             })
             .catch((error) => {
@@ -109,6 +112,7 @@ const Login = () => {
 
   return (
     <div className="m-0 p-0">
+      <Header />
       <form
         onSubmit={(e) => e.preventDefault()}
         className="inset-x-[35%] inset-y-[10%] absolute bg-black w-[450px] h-[600px] text-white  bg-opacity-80"
