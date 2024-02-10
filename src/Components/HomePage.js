@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { NETFLIX_BG_IMAGE, NETFLIX_LOGO_URl } from "../Utils/Constants";
 
 const HomePage = () => {
   return (
@@ -25,7 +24,7 @@ const HomePage = () => {
           <img
             className=" w-48 "
             alt="netflix-logo"
-            src={NETFLIX_LOGO_URl}
+            src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
           ></img>
         </div>
         <div>
@@ -37,7 +36,7 @@ const HomePage = () => {
       <div className=" bg-gradient-to-r from-black to-black">
         <img
           className="bg-cover bg-gradient-to-b from-black to-black"
-          src={NETFLIX_BG_IMAGE}
+          src="https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/98a1cb1e-5a1d-4b98-a46f-995272b632dd/IN-en-20240129-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
           alt="Bg-pic-netflix"
         ></img>
       </div>
