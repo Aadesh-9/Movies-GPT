@@ -10,7 +10,7 @@ import { auth } from "../Utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
-import { USER_AVATAR } from "../Utils/Constants";
+import { NETFLIX_BG_IMAGE, USER_AVATAR } from "../Utils/Constants";
 import Header from "./Header";
 
 const Login = () => {
@@ -50,7 +50,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
           updateProfile(auth.currentUser, {
             displayName: name.current.value,
             photoURL: { USER_AVATAR },
@@ -65,7 +64,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              console.log("cli");
               navigate("/Browse");
             })
             .catch((error) => {
@@ -75,7 +73,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode + "  -  " + errorMessage);
+
           setSignInError(
             "Oops !! Your password does not match with email , please  .. Check your email and password ."
           );
@@ -88,13 +86,12 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
           navigate("/Browse");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode + "  -  " + errorMessage);
+
           setSignInError(
             "Oops !! Your password does not match with email , please  .. Check your email and password ."
           );
@@ -187,10 +184,7 @@ const Login = () => {
           </button>
         </p>
       </form>
-      <img
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/98a1cb1e-5a1d-4b98-a46f-995272b632dd/IN-en-20240129-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-        alt="Bg-pic-netflix"
-      ></img>
+      <img src={NETFLIX_BG_IMAGE} alt="Bg-pic-netflix"></img>
     </div>
   );
 };

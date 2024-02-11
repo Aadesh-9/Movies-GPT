@@ -4,7 +4,6 @@ import VideoBackground from "./VideoBackground";
 
 const MainComponent = () => {
   const movies = useSelector((store) => store?.movies?.nowPlayingMovies);
-  console.log("error");
 
   if (!movies) return;
   const mainMovie = movies[3];
