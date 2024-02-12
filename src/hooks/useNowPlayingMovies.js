@@ -1,14 +1,10 @@
 import { useEffect } from "react";
 import { API_OPTIONS } from "../Utils/Constants";
 import { useDispatch, useSelector } from "react-redux";
-import { useDispatch, useSelector } from "react-redux";
 import { addNowPlayingMovies } from "../Utils/moviesSlice";
 import { NOW_PLAYING_MOVIES_API } from "../Utils/Constants";
 
 const useNowPlayingMovies = () => {
-  const nowPlayingMovies = useSelector(
-    (store) => store.movies.nowPlayingMovies
-  );
   const nowPlayingMovies = useSelector(
     (store) => store.movies.nowPlayingMovies
   );
@@ -23,7 +19,6 @@ const useNowPlayingMovies = () => {
   };
 
   useEffect(() => {
-    if (!nowPlayingMovies) getNowPlayingMovies();
     if (!nowPlayingMovies) getNowPlayingMovies();
   }, []);
 };
