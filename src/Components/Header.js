@@ -86,7 +86,7 @@ const Header = () => {
             </button>
             <img
               onClick={photoClickHandler}
-              className="w-12 h-12 md:w-14 md:h-14 mr-10 mt-3 md:mt-2 rounded-lg relative left-20 -right-6 cursor-pointer"
+              className="w-12 h-12 md:w-14 md:h-14 mr-5 mt-3 md:mt-2 rounded-lg relative left-20 -right-6 cursor-pointer"
               alt="user-icon"
               src={USER_AVATAR}
             ></img>

@@ -112,15 +112,15 @@ const Login = () => {
       <Header />
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" md:inset-x-[35%] inset-y-[10%] absolute bg-black w-full md:w-[450px] h-[600px] text-white bg-opacity-80 -mr-8 md:mr-0"
+        className=" md:inset-x-[35%] inset-y-[10%] mt-3 md:mt-0  absolute bg-black w-full h-[86%] md:w-[450px] md:h-[600px] text-white bg-opacity-80  -mr-8 md:mr-0"
       >
-        <h1 className="p-3 mx-[60px] mt-10 text-3xl font-bold m-2">
+        <h1 className=" p-3 mx-[60px] mt-10 text-3xl font-bold m-2">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
             ref={name}
-            className="py-7 px-2 ml-[19%] md:px-4 md:mx-[73px] w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700 "
+            className="py-7 px-2 ml-[19%] md:px-4 md:mx-[73px] w-[240px] md:w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700 "
             type="Name"
             name="Name"
             placeholder="Full Name"
@@ -128,14 +128,14 @@ const Login = () => {
         )}
         <input
           ref={email}
-          className="py-7 px-4  my-5 mx-[73px] w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700"
+          className="py-7 px-4  my-5 mx-[73px] w-[240px] md:w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700"
           type="text"
           name="email-or-phone-no"
           placeholder="Email or phone number"
         ></input>
         <input
           ref={password}
-          className="py-7 px-4 mx-[73px] w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700 "
+          className="py-7 px-4 mx-[73px] w-[240px] md:w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700 "
           type="password"
           name="password"
           placeholder="password"
@@ -148,7 +148,7 @@ const Login = () => {
         </p>
 
         <button
-          className="my-3 mx-[73px] w-[300px] h-[50px] rounded-md bg-red-700 border-[1px] border-black"
+          className="my-3 mx-[73px] w-[240px] md:w-[300px] h-[50px] rounded-md bg-red-700 border-[1px] border-black"
           onClick={clickHandler}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
