@@ -58,18 +58,18 @@ const Header = () => {
 
   return (
     <div className="">
-      <div className="absolute bg-gradient-to-b from-black w-screen z-20  p-3    flex justify-between">
+      <div className="absolute bg-gradient-to-b from-black w-screen z-20  p-3 flex flex-col md:flex-row justify-between">
         <img
-          className=" w-44 "
+          className=" w-44 mx-auto md:mx-0"
           alt="netflix-logo"
           src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
         ></img>
         {user && (
-          <div className="flex p-2 relative right-20">
+          <div className="ml-1 md:ml-0 flex p-2 relative right-20">
             {showGptSearch && (
               <select
                 onClick={handleLanguageChange}
-                className="p-2 bg-gray-800 text-white m-2"
+                className="-mr-8 md:mr-0 p-2 mt-4 h-12 bg-gray-800 text-white m-2 ml-[84px] md:ml-0"
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
                   <option key={lang.identifier} value={lang.identifier}>
@@ -79,21 +79,21 @@ const Header = () => {
               </select>
             )}
             <button
-              className="py-2 px-4 mx-4 my-4 bg-purple-800 text-white rounded-lg"
+              className="-mr-10 md:mr-0 ml-[85px] md:ml-10 py-2 px-4 mx-4 my-4 bg-purple-800 text-white rounded-lg"
               onClick={handleGptSearchClick}
             >
               {showGptSearch ? "HomePage" : "GptSearch"}
             </button>
             <img
               onClick={photoClickHandler}
-              className="w-14 h-14 rounded-sm relative left-20 -right-6 cursor-pointer"
+              className="w-12 h-12 md:w-14 md:h-14 mr-10 mt-3 md:mt-2 rounded-lg relative left-20 -right-6 cursor-pointer"
               alt="user-icon"
               src={USER_AVATAR}
             ></img>
             {isClicked && (
               <button
                 onClick={handleSignOut}
-                className="w-[100px] h-[40px] relative top-[68px] left-[8px] text-xl bg-black text-white mt-1  p-1  font-bold  cursor-pointer"
+                className="w-[100px]  h-[40px] relative top-[68px] left-[-34px] text-xl bg-black text-white mt-1  p-1  font-bold  cursor-pointer"
               >
                 Sign Out
               </button>

@@ -7,7 +7,7 @@ const SecondaryComponent = () => {
   return (
     <div>
       <div className="bg-black">
-        <div className="-mt-52 relative z-20 ">
+        <div className="mt-0 md:-mt-52 relative z-20 md:ml-5">
           <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
           <MovieList title={"Top Rated"} movies={movies.topRatedMovies} />
           <MovieList title={"Popular"} movies={movies.popularMovies} />
