@@ -44,3 +44,6 @@ export const SUPPORTED_LANGUAGES = [
     name: "Spanish",
   },
 ];
+
+export const OPENAI_API_KEY =
+  "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";
