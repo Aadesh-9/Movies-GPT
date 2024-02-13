@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Header from "./Header";
 
 const HomePage = () => {
   return (
@@ -34,7 +35,7 @@ const HomePage = () => {
         </div>
         <div>
           <button className=" end-[70px] top-[35px]  w-[100px] p-1 absolute text-white opacity-100  bg-red-700 font-semibold text-lg cursor-pointer">
-            <Link to={"/Login"}>Sign In</Link>
+            <Link to={"/login"}>Sign In</Link>
           </button>
         </div>
       </div>
