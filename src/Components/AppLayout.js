@@ -7,6 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
+import MovieDescription from "./MovieDescription";
 
 const appRouter = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const appRouter = createBrowserRouter([
   {
     path: "/Browse",
     element: <Browse />,
+  },
+  {
+    path: "/MovieDescription/:movieId",
+    element: <MovieDescription />,
   },
 ]);
 

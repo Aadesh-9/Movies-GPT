@@ -7,7 +7,11 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
-import { SUPPORTED_LANGUAGES, USER_AVATAR } from "../Utils/Constants";
+import {
+  NETFLIX_LOGO_URl,
+  SUPPORTED_LANGUAGES,
+  USER_AVATAR,
+} from "../Utils/Constants";
 import { toggleGptSearchView } from "../Utils/gptSlice";
 import { changeLanguage } from "../Utils/configSlice";
 
@@ -62,7 +66,7 @@ const Header = () => {
         <img
           className=" w-44 mx-auto md:mx-0"
           alt="netflix-logo"
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          src={NETFLIX_LOGO_URl}
         ></img>
         {user && (
           <div className="ml-1 md:ml-0 flex p-2 relative right-20">
