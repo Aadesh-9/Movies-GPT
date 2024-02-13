@@ -30,6 +30,10 @@ const appRouter = createBrowserRouter([
     path: "/MovieDescription/:movieId",
     element: <MovieDescription />,
   },
+  {
+    path: "/Browse",
+    element: <Browse />,
+  },
 ]);
 
 const AppLayout = () => {

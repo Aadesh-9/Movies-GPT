@@ -120,7 +120,7 @@ const Login = () => {
         {!isSignInForm && (
           <input
             ref={name}
-            className="py-7 px-4 ml-[19%] md:px-4 md:mx-[73px] w-[240px] md:w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700 "
+            className="py-7 px-4 ml-[18%] md:px-4 md:mx-[73px] w-[240px] md:w-[300px] h-[50px] rounded-md border-[1px] border-slate-700 bg-slate-700 "
             type="Name"
             name="Name"
             placeholder="Full Name"

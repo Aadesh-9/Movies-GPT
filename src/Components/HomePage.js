@@ -5,7 +5,7 @@ const HomePage = () => {
     <div>
       <div className="absolute w-full h-screen flex justify-center items-center bg-black opacity-75">
         <div className="  text-white">
-          <h1 className="relative left-4 text-3xl md:text-5xl ml-3  md:ml-0 font-extrabold">
+          <h1 className="relative left-4 text-3xl md:text-5xl ml-[9px]  md:ml-0 font-extrabold">
             The biggest Indian{" "}
             <span className="left-[-10px] md:ml-0 ">hits. Ready to watch</span>{" "}
             here from <span className="md:hidden">₹149.</span>
