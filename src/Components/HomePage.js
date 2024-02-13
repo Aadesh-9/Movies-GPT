@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import Header from "./Header";
 
 const HomePage = () => {
   return (
     <div>
-      <div className="absolute w-full h-[700px] flex justify-center items-center bg-black opacity-75">
+      <div className="absolute w-full h-screen flex justify-center items-center bg-black opacity-75">
         <div className="  text-white">
-          <h1 className="relative left-4 text-3xl md:text-5xl ml-8 md:ml-0 font-extrabold">
+          <h1 className="relative left-4 text-3xl md:text-5xl ml-3  md:ml-0 font-extrabold">
             The biggest Indian{" "}
             <span className="left-[-10px] md:ml-0 ">hits. Ready to watch</span>{" "}
             here from <span className="md:hidden">₹149.</span>
@@ -16,7 +15,7 @@ const HomePage = () => {
             </span>
           </h1>
           <div>
-            <h3 className="text-xl  -ml-12 md:ml-[11%] relative inset-x-[29%] font-normal md:text-2xl mt-[14px] ">
+            <h3 className="text-xl  -ml-12 md:ml-[11%] relative inset-x-[29%] font-normal md:text-2xl -mt-4 md:mt-[14px] ">
               Join today. Cancel anytime.
             </h3>
             <h3 className="text-xl -ml-14 md:ml-[12%] relative inset-x-[25%] font-normal md:text-2xl mt-[14px] ">
@@ -34,7 +33,7 @@ const HomePage = () => {
           ></img>
         </div>
         <div>
-          <button className=" end-[70px] top-[35px]  w-[100px] p-1 absolute text-white opacity-100  bg-red-700 font-semibold text-lg cursor-pointer">
+          <button className="end-5 md:end-[70px] top-[35px]   w-[100px]  p-1 absolute text-white opacity-100  bg-red-700 font-semibold text-lg cursor-pointer">
             <Link to={"/login"}>Sign In</Link>
           </button>
         </div>
