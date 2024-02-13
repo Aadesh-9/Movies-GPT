@@ -1,9 +1,5 @@
 {
   "projects": {
-<<<<<<< HEAD
     "default": "netflix--gpt-836cd"
-=======
-    "default": "netflixgpt-95242"
->>>>>>> e2c98fff8850b60d104a9a0c0718fa18d926a6c7
   }
 }

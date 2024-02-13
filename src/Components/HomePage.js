@@ -1,8 +1,6 @@
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const user = useSelector((store) => store.user);
   return (
     <div>
       <div className="absolute w-full h-[700px] flex justify-center items-center bg-black opacity-75">
@@ -35,11 +33,9 @@ const HomePage = () => {
           ></img>
         </div>
         <div>
-          {!user && (
-            <button className=" end-[70px] top-[35px]  w-[100px] p-1 absolute text-white opacity-100  bg-red-700 font-semibold text-lg cursor-pointer">
-              <Link to={"/Login"}>Sign In</Link>
-            </button>
-          )}
+          <button className=" end-[70px] top-[35px]  w-[100px] p-1 absolute text-white opacity-100  bg-red-700 font-semibold text-lg cursor-pointer">
+            <Link to={"/Login"}>Sign In</Link>
+          </button>
         </div>
       </div>
       <div className=" bg-gradient-to-r from-black to-black">
