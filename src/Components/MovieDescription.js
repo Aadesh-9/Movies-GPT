@@ -76,7 +76,7 @@ const MovieDescription = () => {
             src={NETFLIX_LOGO_URl}
           ></img>
           <Link to={"/Browse"}>
-            <button className="absolute bg-red-600 text-white font-bold text-xl px-4 py-2 my-6 ml-[67%] -mt-[13%] md:mt-0  md:ml-[77%] rounded-lg">
+            <button className="absolute bg-red-600 text-white font-bold text-xl px-4 py-2 my-6 ml-[67%] -mt-[16%] md:mt-4  md:ml-[77%] rounded-lg">
               Home
             </button>
           </Link>
@@ -86,7 +86,7 @@ const MovieDescription = () => {
           src={
             "https://www.youtube.com/embed/" +
             trailer?.key +
-            "?&autoplay=1&showinfo=0&controls=0&loop=1&mute=1"
+            "?&autoplay=1&showinfo=0&controls=1&loop=1&mute=1"
           }
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write;  encrypted-media; gyroscope; picture-in-picture; web-share"

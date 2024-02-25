@@ -73,7 +73,7 @@ const Header = () => {
             {showGptSearch && (
               <select
                 onClick={handleLanguageChange}
-                className="-mr-8 md:mr-0 p-2 mt-4 h-12 bg-gray-800 text-white m-2 ml-[84px] md:ml-0"
+                className=" md:mr-10 ml-[75px] md:ml-10 py-2    md:my-4 md:mb-0 bg-gray-800 text-white rounded-lg"
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
                   <option key={lang.identifier} value={lang.identifier}>
@@ -83,21 +83,21 @@ const Header = () => {
               </select>
             )}
             <button
-              className="-mr-10 md:mr-0 ml-[85px] md:ml-10 py-2 px-4 mx-4  md:my-4 md:mb-0 bg-purple-800 text-white rounded-lg"
+              className="w-28 h-12 md:w-auto md:h-auto md:mr-0 ml-[55px] md:mt-auto md:ml-10 md:py-4 mx-4  md:my-4 md:mb-0 bg-purple-800 text-white rounded-lg"
               onClick={handleGptSearchClick}
             >
               {showGptSearch ? "HomePage" : "GptSearch"}
             </button>
             <img
               onClick={photoClickHandler}
-              className="w-12 h-12 md:w-14 md:h-14 mr-5  md:mt-2 rounded-lg relative left-20 -right-6 cursor-pointer"
+              className="w-[54px] h-[54px] md:w-14  md:h-14 mr-5 -mt-[10px] md:mt-2 rounded-lg relative left-[160px] md:left-20 -right-6 top-2 cursor-pointer"
               alt="user-icon"
               src={USER_AVATAR}
             ></img>
             {isClicked && (
               <button
                 onClick={handleSignOut}
-                className="w-[100px]  h-[40px] relative top-[68px] left-[-34px] text-xl bg-black text-white mt-1  p-1  font-bold  cursor-pointer"
+                className="w-[130px] md:w-[140px]  h-[40px] relative left-[52px] top-[53px] md:top-[78px] md:left-[-36px] text-xl rounded-lg bg-black text-white mt-1  p-1  font-bold  cursor-pointer "
               >
                 Sign Out
               </button>

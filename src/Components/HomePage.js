@@ -1,8 +1,24 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { NETFLIX_BG_IMAGE } from "../Utils/Constants";
 
 const HomePage = () => {
+  useEffect(() => {
+    const handleTouchMove = (event) => {
+      // Prevent default behavior for touchmove event
+      event.preventDefault();
+    };
+
+    // Add touchmove event listener when the component mounts
+    document.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+    // Remove touchmove event listener when the component unmounts
+    return () => {
+      document.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
   return (
-    <div>
+    <div className="">
       <div className="absolute w-full h-screen flex justify-center items-center bg-black opacity-75">
         <div className="  text-white">
           <h1 className="relative left-4 text-3xl md:text-5xl ml-0  md:ml-0 font-extrabold">
@@ -33,15 +49,16 @@ const HomePage = () => {
           ></img>
         </div>
         <div>
-          <button className="end-5 md:end-[70px] top-[35px]   w-[100px]  p-1 absolute text-white opacity-100  bg-red-700 font-semibold text-lg cursor-pointer">
+          <button className="end-5 md:end-[50px] top-[25px]   w-[100px]  px-4 py-2 absolute text-white opacity-100  bg-red-700 font-bold text-xl cursor-pointer rounded-lg">
             <Link to={"/login"}>Sign In</Link>
           </button>
         </div>
       </div>
-      <div className=" bg-gradient-to-r from-black to-black">
+      {/* bg-gradient-to-r from-black to-black bg-gradient-to-b from-black to-black */}
+      <div className="w-[100%]  ">
         <img
-          className="h-screen object-cover md:w-screen md:bg-cover bg-gradient-to-b from-black to-black"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/98a1cb1e-5a1d-4b98-a46f-995272b632dd/IN-en-20240129-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
+          className="h-screen object-cover md:w-screen md:bg-cover "
+          src={NETFLIX_BG_IMAGE}
           alt="Bg-pic-netflix"
         ></img>
       </div>
