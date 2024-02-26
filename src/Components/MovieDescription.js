@@ -46,16 +46,16 @@ const MovieDescription = () => {
       <div className="flex justify-end">
         <div className="absolute   ">
           <img
-            className="mt-[265%] w-screen object-cover h-2/6 md:h-full md:mt-0 ; md:p2 md:w-[220px]"
+            className="mt-[265%] w-screen object-cover h-2/6 md:h-[800px] md:mt-[142%] ; md:p2 md:w-[600px]"
             alt="movie poster"
             src={IMG_CDN_URL + poster_path}
           ></img>
         </div>
       </div>
 
-      <div className="md:bg-gradient-to-r md:from-black text-white absolute w-10/12 md:w-[50%] h-full">
-        <div className="bg-black bg-opacity-85 md:bg-transparent ml-9 px-3 pb-2 w-full md:ml-14 md:w-[56%]">
-          <h1 className=" mt-[106%] text-4xl font-extrabold md:mt-24 p-5 shadow-sm">
+      <div className="md:mx-10 md:top-[55%] md:bg-black md:bg-opacity-65 md:bg-gradient-to-r md:from-black text-white absolute w-10/12 md:w-[50%] md:mt-0 h-full md:h-[40%]">
+        <div className=" md:absolute bg-opacity-85 md:bg-transparent ml-9 px-3 pb-2 bg- w-full md:ml-14 md:w-[56%] ">
+          <h1 className=" mt-[106%]  text-4xl font-extrabold md:mt-[10%] p-5 shadow-sm">
             {title}
           </h1>
           <h1 className="p-2 text-xl font-semibold">{overview}</h1>
@@ -76,7 +76,7 @@ const MovieDescription = () => {
             src={NETFLIX_LOGO_URl}
           ></img>
           <Link to={"/Browse"}>
-            <button className="absolute bg-red-600 text-white font-bold text-xl px-4 py-2 my-6 ml-[67%] -mt-[16%] md:mt-4  md:ml-[77%] rounded-lg">
+            <button className="absolute bg-red-600 text-white font-bold text-xl px-4 py-2 my-6 ml-[67%] -mt-[16%] md:mt-4  md:ml-[90%] rounded-lg">
               Home
             </button>
           </Link>
@@ -91,9 +91,9 @@ const MovieDescription = () => {
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write;  encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
-        <div className=" md:hidden">
+        <div className>
           <img
-            className=" h-screen object-cover md:w-screen md:bg-cover bg-gradient-to-b from-black to-black"
+            className="md:h-full h-screen object-cover md:w-screen md:bg-cover  bg-gradient-to-b from-black to-black"
             src="https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/98a1cb1e-5a1d-4b98-a46f-995272b632dd/IN-en-20240129-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
             alt="Bg-pic-netflix"
           ></img>

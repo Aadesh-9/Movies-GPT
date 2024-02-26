@@ -73,7 +73,7 @@ const Header = () => {
             {showGptSearch && (
               <select
                 onClick={handleLanguageChange}
-                className=" md:mr-10 ml-[75px] md:ml-10 py-2    md:my-4 md:mb-0 bg-gray-800 text-white rounded-lg"
+                className=" md:mr-10 ml-[75px] md:ml-10 py-2  md:px-4 md:py-4  md:my-4 md:mb-0 bg-gray-800 text-white rounded-lg"
               >
                 {SUPPORTED_LANGUAGES.map((lang) => (
                   <option key={lang.identifier} value={lang.identifier}>
@@ -83,7 +83,7 @@ const Header = () => {
               </select>
             )}
             <button
-              className="w-28 h-12 md:w-auto md:h-auto md:mr-0 ml-[55px] md:mt-auto md:ml-10 md:py-4 mx-4  md:my-4 md:mb-0 bg-purple-800 text-white rounded-lg"
+              className="w-28 h-12 md:w-auto md:h-auto md:mr-0 ml-[55px] md:mt-4 md:ml-10 md:px-4 md:py-4 mx-4  md:my-4 md:mb-0 bg-purple-800 text-white rounded-lg"
               onClick={handleGptSearchClick}
             >
               {showGptSearch ? "HomePage" : "GptSearch"}
