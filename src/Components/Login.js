@@ -169,7 +169,7 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <input
-          className=" relative right-60 md:right:auto inset-y-14 md:inset-x-20 md:inset-y-6 p-2 w-4 h-4 "
+          className="mb-[24px] -ml-[70px] md:ml-0  relative right-60 md:right:auto inset-y-14 md:inset-x-20 md:inset-y-6 p-2 w-4 h-4 "
           type="checkbox"
           name="Remember-me"
           id="Remember-me"
@@ -179,7 +179,7 @@ const Login = () => {
         ></input>
         <label
           htmlFor="Remember me"
-          className="relative inset-y-2  inset-x-[56px] md:inset-x-20
+          className="ml-10 md:ml-1 relative inset-y-2  inset-x-[56px] md:inset-x-20
          md:inset-y-6 p-[1px] mx-1 text-lg md:text-xl cursor-pointer"
           onClick={rememberMeHandler}
         >
