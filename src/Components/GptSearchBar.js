@@ -31,7 +31,11 @@ const GptSearchBar = () => {
       messages: [{ role: "user", content: gptQuerry }],
       model: "gpt-3.5-turbo",
     });
-    const gptMovies = gptResults?.choices[0]?.message?.content.split(",");
+const gptMovies = gptResults?.choices[0]?.message?.content
+  .split(",")
+  .map((m) => m.trim())       // remove spaces
+  .map((m) => m.replace(/^.*?:/, "")) // remove any prefix like "Here are 5 movies:"
+  .slice(0, 5);                // keep only first 5
 
     const promiseArray = gptMovies.map((movie) => searchMovieTmdb(movie));
 
