@@ -27,15 +27,16 @@ const GptSearchBar = () => {
       searchText.current.value +
       "only give me names of 5 movies , comma separated like the example result given ahead . example result :The Conjuring,Annabelle,Raaz,It,Nun";
 
-    const gptResults = await openai.chat.completions.create({
-      messages: [{ role: "user", content: gptQuerry }],
-      model: "gpt-3.5-turbo",
-    });
-const gptMovies = gptResults?.choices[0]?.message?.content
-  .split(",")
-  .map((m) => m.trim())       // remove spaces
-  .map((m) => m.replace(/^.*?:/, "")) // remove any prefix like "Here are 5 movies:"
-  .slice(0, 5);                // keep only first 5
+   const response = await fetch("http://localhost:5000/api/gpt", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ query: gptQuerry }),
+});
+
+const data = await response.json();
+console.log(data);
+
+const gptMovies = data?.text?.split(",");
 
     const promiseArray = gptMovies.map((movie) => searchMovieTmdb(movie));
 
