@@ -31,10 +31,10 @@ const appRouter = createBrowserRouter(
       path: "/MovieDescription/:movieId",
       element: <MovieDescription />,
     },
-  ],
-  {
-    basename: "/Movies-GPT", // 👈 GITHUB PAGES FIX
-  }
+  ]
+  // {
+  //   basename: "/Movies-GPT", // 👈 GITHUB PAGES FIX
+  // }
 );
 
 const AppLayout = () => {
