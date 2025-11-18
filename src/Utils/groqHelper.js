@@ -1,5 +1,3 @@
-import { GROQ_API_KEY } from "./constants2";
-
 export const getGroqMovieSuggestions = async (userQuery) => {
   try {
     const response = await fetch(
@@ -7,7 +5,7 @@ export const getGroqMovieSuggestions = async (userQuery) => {
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${GROQ_API_KEY}`,
+          Authorization: `Bearer ${process.env.REACT_APP_GROQ_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
