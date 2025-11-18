@@ -4,7 +4,6 @@ import { API_OPTIONS } from "../Utils/Constants";
 import { addTrailerVideo } from "../Utils/moviesSlice";
 
 const useMovieTrailer = (movieId) => {
-  console.log(movieId);
   const dispatch = useDispatch();
   const getMovieTrailer = async () => {
     const data = await fetch(

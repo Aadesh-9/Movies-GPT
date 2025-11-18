@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+
+Netflix-GPT
+
+"If the API isn't working, please try using a VPN as some requests may be restricted based on location."
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
