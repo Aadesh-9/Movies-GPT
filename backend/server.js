@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 dotenv.config();
-console.log("API Key exists?", !!process.env.OPENAI_API_KEY);
+console.log("API Key exists?", !!process.env.GEMINI_API_KEY);
 
 const app = express();
 app.use(cors());
@@ -12,7 +12,7 @@ app.use(express.json());
 
 // OpenAI client
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.GEMINI_API_KEY,
 });
 
 // Endpoint to call GPT

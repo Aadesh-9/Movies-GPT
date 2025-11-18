@@ -3,53 +3,53 @@ import lang from "../Utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../Utils/Constants";
 import { addGptMovieResult } from "../Utils/gptSlice";
-import openai from "openai";
+import { getGroqMovieSuggestions } from "../Utils/groqHelper"; // ← UPDATED
 
 const GptSearchBar = () => {
-  const langKey = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
+  const langKey = useSelector((store) => store.config.lang);
   const dispatch = useDispatch();
 
-  // Fetch from TMDB
   const searchMovieTmdb = async (movie) => {
-    const data = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=en-US&page=1`,
-      API_OPTIONS
-    );
-    const json = await data.json();
-    return json.results;
+    try {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=en-US&page=1`,
+        API_OPTIONS
+      );
+      const json = await data.json();
+      return json.results;
+    } catch (e) {
+      console.error("TMDB fetch failed for:", movie);
+      return [];
+    }
   };
 
-  const handelGptSearchClick = async () => {
-    try {
-      const gptQuerry =
-        "act as a movie recommendation system and suggest some movies for the query " +
-        searchText.current.value +
-        " only give me names of 5 movies , comma separated like the example result given ahead. example result : The Conjuring,Annabelle,Raaz,It,Nun";
+  const handleSearchClick = async () => {
+    const query = searchText.current.value;
+    if (!query) return;
 
-      const gptResults = await openai.chat.completions.create({
-        messages: [{ role: "user", content: gptQuerry }],
-        model: "gpt-3.5-turbo",
-      });
+    console.log("Searching movies for:", query);
 
-      const gptMovies =
-        gptResults?.choices?.[0]?.message?.content?.split(",") ?? [];
+    const gptMovies = await getGroqMovieSuggestions(query);
+    console.log("Groq Suggestion:", gptMovies);
 
-      if (gptMovies.length === 0) return; // nothing returned, no update
-
-      const promiseArray = gptMovies.map((movie) => searchMovieTmdb(movie));
-
-      const tmdbResults = await Promise.all(promiseArray);
-
-      dispatch(
-        addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
-      );
-    } catch (err) {
-      // silently fail, show nothing
-      // Don't dispatch anything
-      // Don't show any error message
+    if (!gptMovies || gptMovies.length === 0) {
+      alert("No movie suggestions found");
       return;
     }
+
+    const tmdbResults = await Promise.all(
+      gptMovies.map((movie) => searchMovieTmdb(movie))
+    );
+
+    console.log("TMDB results:", tmdbResults);
+
+    dispatch(
+      addGptMovieResult({
+        movieNames: gptMovies,
+        movieResults: tmdbResults,
+      })
+    );
   };
 
   return (
@@ -61,12 +61,12 @@ const GptSearchBar = () => {
         <input
           ref={searchText}
           type="text"
-          name="gpt-search-bar"
           className="p-4 mx-4 my-4 md:m-4 col-span-9"
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
+
         <button
-          onClick={handelGptSearchClick}
+          onClick={handleSearchClick}
           className="col-span-3 m-4 px-[2px] py-2 md:px-2 bg-red-700 text-white rounded-lg"
         >
           {lang[langKey].search}
