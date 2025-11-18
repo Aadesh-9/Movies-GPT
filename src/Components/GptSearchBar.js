@@ -3,6 +3,7 @@ import lang from "../Utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../Utils/Constants";
 import { addGptMovieResult } from "../Utils/gptSlice";
+import openai from "openai";
 
 const GptSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
@@ -65,7 +66,7 @@ const GptSearchBar = () => {
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
         <button
-          onClick={handleGptSearchClick}
+          onClick={handelGptSearchClick}
           className="col-span-3 m-4 px-[2px] py-2 md:px-2 bg-red-700 text-white rounded-lg"
         >
           {lang[langKey].search}
