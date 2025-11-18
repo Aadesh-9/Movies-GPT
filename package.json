@@ -2,7 +2,6 @@
   "name": "netflix-gpt",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Aadesh-9.github.io/Movies-GPT",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@reduxjs/toolkit": "^2.1.0",
