@@ -189,7 +189,7 @@ const Login = () => {
           className="relative inset-y-1 inset-x-[75px]
          md:inset-y-6 p-[1px] text-lg"
         >
-          {isSignInForm ? "New to Netflix ?" : "Already a user ?"}
+          {isSignInForm ? "New to Movies-GPT ? " : "Already a user ?"}
 
           <button
             className="text-xl font-bold ml-[2px]"

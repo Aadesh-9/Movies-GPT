@@ -42,11 +42,9 @@ const HomePage = () => {
       </div>
       <div className="w-full flex justify-between absolute  p-3  bg-gradient-to-b from-black ">
         <div>
-          <img
-            className=" w-48 "
-            alt="netflix-logo"
-            src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-          ></img>
+          <h2 className="md:ml-14 mt-2 text-4xl font-bold text-red-600 mx-4">
+            Movies-GPT
+          </h2>
         </div>
         <div>
           <button className="end-5 md:end-[50px] top-[25px]   w-[100px]  px-4 py-2 absolute text-white opacity-100  bg-red-700 font-bold text-xl cursor-pointer rounded-lg">

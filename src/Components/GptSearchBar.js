@@ -22,23 +22,35 @@ const GptSearchBar = () => {
   };
 
   const handelGptSearchClick = async () => {
-    const gptQuerry =
-      "act as a movie recommendation system and suggest some movies for the query" +
-      searchText.current.value +
-      "only give me names of 5 movies , comma separated like the example result given ahead . example result :The Conjuring,Annabelle,Raaz,It,Nun";
+    try {
+      const gptQuerry =
+        "act as a movie recommendation system and suggest some movies for the query " +
+        searchText.current.value +
+        " only give me names of 5 movies , comma separated like the example result given ahead. example result : The Conjuring,Annabelle,Raaz,It,Nun";
 
-    const gptResults = await openai.chat.completions.create({
-      messages: [{ role: "user", content: gptQuerry }],
-      model: "gpt-3.5-turbo",
-    });
-    const gptMovies = gptResults?.choices[0]?.message?.content.split(",");
+      const gptResults = await openai.chat.completions.create({
+        messages: [{ role: "user", content: gptQuerry }],
+        model: "gpt-3.5-turbo",
+      });
 
-    const promiseArray = gptMovies.map((movie) => searchMovieTmdb(movie));
+      const gptMovies =
+        gptResults?.choices?.[0]?.message?.content?.split(",") ?? [];
 
-    const tmdbResults = await Promise.all(promiseArray);
-    dispatch(
-      addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
-    );
+      if (gptMovies.length === 0) return; // nothing returned, no update
+
+      const promiseArray = gptMovies.map((movie) => searchMovieTmdb(movie));
+
+      const tmdbResults = await Promise.all(promiseArray);
+
+      dispatch(
+        addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
+      );
+    } catch (err) {
+      // silently fail, show nothing
+      // Don't dispatch anything
+      // Don't show any error message
+      return;
+    }
   };
 
   return (
