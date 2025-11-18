@@ -9,57 +9,56 @@ import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
 import MovieDescription from "./MovieDescription";
 
-const appRouter = createBrowserRouter([
+const appRouter = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <HomePage />,
+    },
+    {
+      path: "/Home",
+      element: <HomePage />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/Browse",
+      element: <Browse />,
+    },
+    {
+      path: "/MovieDescription/:movieId",
+      element: <MovieDescription />,
+    },
+  ],
   {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/Home",
-    element: <HomePage />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/Browse",
-    element: <Browse />,
-  },
-  {
-    path: "/MovieDescription/:movieId",
-    element: <MovieDescription />,
-  },
-  {
-    path: "/Browse",
-    element: <Browse />,
-  },
-]);
+    basename: "/Movies-GPT", // 👈 GITHUB PAGES FIX
+  }
+);
 
 const AppLayout = () => {
   const dispatch = useDispatch();
-  return (
-    <div>
-      {useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-          if (user) {
-            const { uid, email, displayName, photoURL } = user;
-            dispatch(
-              addUser({
-                uid: uid,
-                email: email,
-                displayName: displayName,
-                photoURL: photoURL,
-              })
-            );
-          } else {
-            dispatch(removeUser());
-          }
-        });
-      }, [])}
-      <RouterProvider router={appRouter} />
-    </div>
-  );
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+      } else {
+        dispatch(removeUser());
+      }
+    });
+  }, [dispatch]);
+
+  return <RouterProvider router={appRouter} />;
 };
 
 export default AppLayout;
