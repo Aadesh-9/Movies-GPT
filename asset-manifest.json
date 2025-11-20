@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Movies-GPT/static/css/main.ebb38567.css",
-    "main.js": "/Movies-GPT/static/js/main.e4cf7b46.js",
+    "main.js": "/Movies-GPT/static/js/main.3b3bcc05.js",
     "static/js/592.5f1452f2.chunk.js": "/Movies-GPT/static/js/592.5f1452f2.chunk.js",
     "index.html": "/Movies-GPT/index.html",
     "main.ebb38567.css.map": "/Movies-GPT/static/css/main.ebb38567.css.map",
-    "main.e4cf7b46.js.map": "/Movies-GPT/static/js/main.e4cf7b46.js.map",
+    "main.3b3bcc05.js.map": "/Movies-GPT/static/js/main.3b3bcc05.js.map",
     "592.5f1452f2.chunk.js.map": "/Movies-GPT/static/js/592.5f1452f2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ebb38567.css",
-    "static/js/main.e4cf7b46.js"
+    "static/js/main.3b3bcc05.js"
   ]
 }
